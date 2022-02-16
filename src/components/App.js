@@ -158,8 +158,8 @@ function App() {
 
   const[stateClicked,setStateClicked]=useState(false)
   const[cityClicked,setCityClicked]=useState(false)
-  const[stateIndex,setStateIndex]=useState()
-  const[cityIndex,setCityIndex]=useState()
+  const[stateIndex,setStateIndex]=useState("")
+  const[cityIndex,setCityIndex]=useState("")
 
   // var stateIndex
   // var cityIndex
@@ -170,7 +170,7 @@ function App() {
     {states.map((state,index)=>{
               let id=`state${index+1}`
               //  stateIndex =index
-      return   <div  key={id}  style={{color:"red"}} id={id}  onClick={()=>{setStateClicked(!stateClicked),setStateIndex(index)}} > {state.name} </div>
+      return   <div  key={id}  style={{color:"red"}} id={id}  onClick={()=>{setStateIndex(index),setCityClicked(false),(index==stateIndex ||"" )? setStateClicked(!stateClicked):setStateClicked(true)}} > {state.name} </div>
 
     })}
 
@@ -178,12 +178,12 @@ function App() {
        { stateClicked &&  states[stateIndex].cities.map((city,index)=>{
          let cityid=`city${index+1}`
           // cityIndex = index
-        return              <div key={cityid} style={{color:"blue"}} id={cityid} onClick={()=>{setCityClicked(!cityClicked), setCityIndex(index)}}>{city.name}   </div>
+        return   <div key={cityid} style={{color:"blue"}} id={cityid} onClick={()=>{ setCityClicked(!cityClicked), setCityIndex(index),(index==cityIndex ||"" )? setCityClicked(!cityClicked):setCityClicked(true) }}>{city.name}   </div>
        })}
 {/* clikced city towns array is mapped, display town names in that state */}
-                { stateClicked&&  cityClicked &&  states[stateIndex].cities[cityIndex].towns.map((town,index)=>{
+                {  stateClicked&&  cityClicked &&  states[stateIndex].cities[cityIndex].towns.map((town,index)=>{
                   let townid=`town${index+1}`
-                  return <div key={townid} style={{color:"green"}} id={townid} >{town.name}</div>
+                                   return  <div key={townid} style={{color:"green"}} id={townid} >{town.name}</div>
                 })}
                 
                 
@@ -199,4 +199,5 @@ function App() {
 }
 //states loop ->4 items ->item name is state name 
 // select one item , loop its cities names 
+// when one city is clicked , set that state index and set clicked true and when same city is clicked , check index number and if matches negate state otherwise leave it 
 export default App;
