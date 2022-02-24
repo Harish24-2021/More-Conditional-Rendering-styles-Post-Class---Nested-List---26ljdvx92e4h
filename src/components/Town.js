@@ -5,7 +5,7 @@ function Town(props) {
       <div>
  <ol>{props.indtown.map((town,index)=>{ 
 
-    return <li id={`town${index+1}`}  >{town.name}</li>
+    return <li id={`town${index+1}`}  key={`town${index+1}`}  >{town.name}</li>
 
  })}</ol>
   </div>

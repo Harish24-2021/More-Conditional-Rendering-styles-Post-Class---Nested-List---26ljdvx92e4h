@@ -160,14 +160,12 @@ function App() {
   return <div id="main">
 
 
-
-   {states.map((state,index)=>{
-              console.log(state)
-              //  stateIndex =index
-      return <IndividualState states={state} index={index}/>  
+<ul>   {states.map((state,index)=>{
+ 
+      return <li  key={`state${index+1}`}   id={`state${index+1}`}>  <IndividualState states={state} index={index}/> </li> 
 
     })}
-
+</ul>
         
       
       

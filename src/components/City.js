@@ -3,21 +3,26 @@ import Town from './Town'
 
 function City(props) {
     console.log(props.stateId)
-    const[clicked,setClicked]=useState(false)
+    const[clicked,setCityClicked]=useState(false)
     const[clickedIndex,setClickedIndex]=useState()
     const[clickedCity,setClickedCity]=useState()
 
     console.log(clickedCity)
+   if( !props.stateClicked ){
+     setCityClicked(false)
+     alert("sate is closed, so city is also closed")
+   }
+
+
   return (
-    <div>
+    <div         onClick={()=>{setCityClicked(!clicked),setClickedIndex(props.index),setClickedCity(props.indcity)}}   >
      
-       <li onClick={()=>{setClicked(!clicked),setClickedIndex(props.index),setClickedCity(props.indcity)}} id={`city${props.index+1}`}  >  {props.indcity.name}
+  {props.indcity.name}
        
-        </li>
           
                   
         {
-        clicked && props.index==clickedIndex  && props.indcity==clickedCity &&   <Town indtown={props.indcity.towns} />} 
+        clicked &&   <Town indtown={props.indcity.towns} />} 
                    
     
 

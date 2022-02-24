@@ -16,19 +16,19 @@ function IndividualState(props) {
   console.log(clicked)
   return (
      <>  
-<ul onClick={()=>{setClicked(!clicked)}} >
+  <div onClick={()=>{setClicked(!clicked)}}>  
   
-  <li id={`state${props.index+1}`} > {props.states.name}</li> 
+  {props.states.name}</div>
 
-  </ul>  
-  <ol>
-{clicked &&  
+  
+ <ol> {clicked &&  
 
 props.states.cities.map((city,index)=>{
-return <City indcity={city} index={index} />
+return <li  id={`city${index+1}`} key={`city${index+1}`}  >  <City indcity={city} index={index} stateClicked={clicked}/></li>
 })
 }
 </ol>
+
 </>
  
 
