@@ -162,7 +162,7 @@ function App() {
 
 <ul>   {states.map((state,index)=>{
  
-      return <li  key={`state${index+1}`}   id={`state${index+1}`}>  <IndividualState states={state} index={index}/> </li> 
+      return <li  key={`state${index+1}`}   id={`state${index+1}`}>  <IndividualState id={`state${index+1}`}  states={state} index={index}/> </li> 
 
     })}
 </ul>
