@@ -1,6 +1,6 @@
 import React, { Component, useState } from "react";
 import "./../styles/App.css";
-
+import IndividualState from "./IndividualState";
 // Do not alter the states const and values inside it.
 const states = [
   {
@@ -156,39 +156,19 @@ const states = [
 
 function App() {
 
-  const[stateClicked,setStateClicked]=useState(false)
-  const[cityClicked,setCityClicked]=useState(false)
-  const[stateIndex,setStateIndex]=useState("")
-  const[cityIndex,setCityIndex]=useState("")
 
-  // var stateIndex
-  // var cityIndex
   return <div id="main">
 
 
-    {/* //looping states array, display 4 states name  */}
-    {states.map((state,index)=>{
-              let id=`state${index+1}`
+
+   {states.map((state,index)=>{
+              console.log(state)
               //  stateIndex =index
-      return   <div  key={id}  style={{color:"red"}} id={id}  onClick={()=>{setStateIndex(index),setCityClicked(false),(index==stateIndex ||"" )? setStateClicked(!stateClicked):setStateClicked(true)}} > {state.name} </div>
+      return <IndividualState states={state} index={index}/>  
 
     })}
 
-        {/*clicked state cities array mapped, display city names in that state  */}
-       { stateClicked &&  states[stateIndex].cities.map((city,index)=>{
-         let cityid=`city${index+1}`
-          // cityIndex = index
-        return   <div key={cityid} style={{color:"blue"}} id={cityid} onClick={()=>{ setCityClicked(!cityClicked), setCityIndex(index),(index==cityIndex ||"" )? setCityClicked(!cityClicked):setCityClicked(true) }}>{city.name}   </div>
-       })}
-{/* clikced city towns array is mapped, display town names in that state */}
-                {  stateClicked&&  cityClicked &&  states[stateIndex].cities[cityIndex].towns.map((town,index)=>{
-                  let townid=`town${index+1}`
-                                   return  <div key={townid} style={{color:"green"}} id={townid} >{town.name}</div>
-                })}
-                
-                
-                
-      
+        
       
       
         
