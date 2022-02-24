@@ -24,7 +24,7 @@ function IndividualState(props) {
  <ol> {clicked &&  
 
 props.states.cities.map((city,index)=>{
-return <li  id={`city${index+1}`} key={`city${index+1}`}  >  <City indcity={city} index={index} stateClicked={clicked}/></li>
+return <li  id={`city${index+11}`} key={`city${index+1}`}  >  <City id={`city${index+1}`} indcity={city} index={index} stateClicked={clicked}/></li>
 })
 }
 </ol>

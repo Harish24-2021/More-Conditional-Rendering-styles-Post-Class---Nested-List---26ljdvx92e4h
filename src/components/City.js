@@ -17,7 +17,7 @@ function City(props) {
   return (
     <div         onClick={()=>{setCityClicked(!clicked),setClickedIndex(props.index),setClickedCity(props.indcity)}}   >
      
-  {props.indcity.name}
+  <span id={props.id}><span>{props.indcity.name}</span></span>
        
           
                   
