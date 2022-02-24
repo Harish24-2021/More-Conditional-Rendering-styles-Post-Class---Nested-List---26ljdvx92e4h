@@ -16,9 +16,9 @@ function IndividualState(props) {
   console.log(clicked)
   return (
      <>  
-<ul onClick={()=>{setClicked(!clicked), setClickedIndex(props.states.index)}} >
+<ul onClick={()=>{setClicked(!clicked)}} >
   
-  <li id={`state${props.states.index+1}`} >{props.states.name}</li> 
+  <li id={`state${props.index+1}`} > {props.states.name}</li> 
 
   </ul>  
   <ol>
