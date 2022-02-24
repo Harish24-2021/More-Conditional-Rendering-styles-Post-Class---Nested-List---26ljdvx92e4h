@@ -18,7 +18,7 @@ function IndividualState(props) {
      <>  
   <div onClick={()=>{setClicked(!clicked)}}>  
   
-  <span id={props.id} > </span>{props.states.name}</div>
+  <span id={props.id} >{props.states.name} </span></div>
 
   
  <ol> {clicked &&  
