@@ -15,9 +15,13 @@ function City(props) {
 
 
   return (
-    <div         onClick={()=>{setCityClicked(!clicked),setClickedIndex(props.index),setClickedCity(props.indcity)}}   >
+   <div>
+    <li  id={`city${props.index+1}`} key={`city${props.index+1}`}   onClick={()=>{setCityClicked(!clicked),setClickedIndex(props.index),setClickedCity(props.indcity)}}  >
+
+{props.indcity.name}
+
+    </li>     
      
-  <span id={props.id}>{props.indcity.name}</span>
        
           
                   
@@ -25,8 +29,7 @@ function City(props) {
         clicked &&   <Town indtown={props.indcity.towns} />} 
                    
     
-
-    
+  
     
     </div>
   )
