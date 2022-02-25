@@ -1,15 +1,10 @@
-import React from 'react'
-
-function Town(props) {
+import React from "react";
+export default function Town({ towns }) {
   return (
-      <div>
- <ol>{props.indtown.map((town,index)=>{ 
-
-    return <li id={`town${index+1}`}  key={`town${index+1}`}  >{town.name}</li>
-
- })}</ol>
-  </div>
-  )
+    <>
+      {towns.map((ele, index) => {
+        return <h4 id={`town${index + 1}`}>{ele.name}</h4>;
+      })}
+    </>
+  );
 }
-
-export default Town

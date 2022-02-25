@@ -1,38 +1,29 @@
-import React,{useState} from 'react'
-import Town from './Town'
+import React, { useState } from "react";
+import Town from "./Town";
 
-function City(props) {
-    console.log(props.stateId)
-    const[clicked,setCityClicked]=useState(false)
-    const[clickedIndex,setClickedIndex]=useState()
-    const[clickedCity,setClickedCity]=useState()
+export default function City({ cities, index }) {
+  const [townIndex, setTownIndex] = useState(index);
 
-    console.log(clickedCity)
-   if( !props.stateClicked ){
-     setCityClicked(false)
-     alert("sate is closed, so city is also closed")
-   }
-
+  const handleTown = (index) => {
+    if (townIndex === index) {
+      setTownIndex(-1);
+      return;
+    }
+    setTownIndex(index);
+  };
 
   return (
-   <div>
-    <li  id={`city${props.index+1}`} key={`city${props.index+1}`}   onClick={()=>{setCityClicked(!clicked),setClickedIndex(props.index),setClickedCity(props.indcity)}}  >
-
-{props.indcity.name}
-
-    </li>     
-     
-       
-          
-                  
-        {
-        clicked &&   <Town indtown={props.indcity.towns} />} 
-                   
-    
-  
-    
-    </div>
-  )
+    <>
+      {cities.map((ele, index) => {
+        return (
+          <>
+            <h3 id={`city${index + 1}`} onClick={() => handleTown(index)}>
+              {ele.name}
+            </h3>
+          </>
+        );
+      })}
+      {townIndex !== -1 && <Town towns={cities[townIndex].towns}></Town>}
+    </>
+  );
 }
-
-export default City

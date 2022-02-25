@@ -1,6 +1,6 @@
 import React, { Component, useState } from "react";
 import "./../styles/App.css";
-import IndividualState from "./IndividualState";
+import States from './States';
 // Do not alter the states const and values inside it.
 const states = [
   {
@@ -155,27 +155,10 @@ const states = [
 ];
 
 function App() {
-
-
   return <div id="main">
-
-
-<ul>   {states.map((state,index)=>{
- 
-      return <li  key={`state${index+1}`}   id={`state${index+1}`}>  <IndividualState id={`state${index+1}`}  states={state} index={index}/> </li> 
-
-    })}
-</ul>
-        
-      
-      
-        
-        
-        
-    
+     <h1>States:</h1>
+      <States states={states}></States>
   </div>;
 }
-//states loop ->4 items ->item name is state name 
-// select one item , loop its cities names 
-// when one city is clicked , set that state index and set clicked true and when same city is clicked , check index number and if matches negate state otherwise leave it 
+
 export default App;
